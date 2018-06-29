@@ -14,4 +14,8 @@ $(function() {
 		$('.nav').toggleClass('nav_opened');
 	});
 
+	setTimeout(function() {
+		$('body').addClass('loaded');
+	}, 3000);
+
 });
