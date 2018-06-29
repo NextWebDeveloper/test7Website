@@ -1,0 +1,66 @@
+@import "vars"
+
+
+/*==========  Desktop First  ==========*/
+
+// ≥1200px
++media-breakpoint-down(lg)
+
+// ≥992px
++media-breakpoint-down(md)
+
+// ≥768px
++media-breakpoint-down(sm)
+
+// ≥576px
++media-breakpoint-down(xs)
+
+
+/*==========  Mobile First  ==========*/
+
+// ≤576px
++media-breakpoint-up(sm)
+
+// ≤768px
++media-breakpoint-up(md)
+
+// ≤992px
++media-breakpoint-up(lg)
+
+// ≤1200px
++media-breakpoint-up(xl)
+
+
+@media only screen and (max-width:768px)
+	.header
+		justify-content: space-between
+
+	.navShow
+		display: block // Отображение кнопки раскрытия меню
+
+	.nav
+		flex-direction: column
+		align-items: flex-end	
+		position: absolute
+		top: 100%
+		margin: 0
+		transform: translateX(50px) // Прячем меню за пределы экрана
+		transition: all 1s ease
+
+	.nav_opened
+		transform: translateX(-70px) // Показываем меню при добавлении класса черех JQuery
+
+	.nav__link
+		margin: 10px 0
+		text-align: right
+
+	.services
+		padding-right: 70px
+
+@media only screen and (max-width:576px)	
+	.services
+		padding-left: 30px
+		padding-right: 65px
+
+	.nav_opened
+		transform: translateX(-60px)	

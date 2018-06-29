@@ -1,0 +1,204 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	color: #fff
+	input, textarea
+		border: #666 1px solid
+		outline: none
+		&:focus:required:invalid
+			border-color: red
+		&:required:valid
+			border-color: green
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+	&.img-width
+		width: 100%
+
+.text-center
+	text-align: center
+
+b, strong
+	font-weight: bold
+
+button
+	outline: none!important	
+
+	
+.wrapper // Обёртка для всего сайта
+	width: 100%
+	height: auto
+	min-height: 100vh
+	background-color: #fff //fallback при незагрузке главного изображения фона
+	background: url('../img/main_bg.png') no-repeat center /cover, #000
+	display: flex
+	flex-direction: column
+	padding-right: 10px
+	
+
+.header
+	width: 100%
+	height: 264px	
+	display: flex
+	align-items: flex-end
+	padding-bottom: 58px
+
+.logo
+	margin-left: 37px
+
+.mainNav
+	display: flex
+	position: relative
+
+.nav
+	margin-left: 85px
+	display: flex
+
+.nav__link	
+	margin-right: 37px
+	color: rgb(148, 148, 148)
+	font-size: 13px
+	line-height: 13px	
+	font-family: $bold-font
+	text-transform: uppercase
+	text-decoration: none
+	position: relative
+	&:last-child
+		margin-right: 0
+	&:before, &:after
+		content: ''
+		display: block
+		width: 100%
+		height: 2px
+		background-color: #fff
+		position: absolute
+		top: -5px
+		transform: translateY(-10px)
+		transition: all 0.3s ease
+		opacity: 0
+	&:after
+		top: 16px
+		transform: translateY(10px)
+	&:hover
+		color: #fff	
+		text-decoration: none
+		&:before
+			transform: translateY(0px)
+			opacity: 1
+		&:after
+			transform: translateY(0px)
+			opacity: 1
+
+.navShow // Кнопка раскрытия меню
+	width: 30px
+	height: 30px
+	border: none
+	background-color: transparent
+	padding: 0
+	display: flex
+	justify-content: center
+	display: none
+	span
+		display: block
+		width: 24px	
+		height: 2px	
+		background-color: #fff
+		position: relative
+		transition: background-color 0s ease 0.3s
+		&:after, &:before
+			content: ''
+			position: absolute
+			display: block
+			width: 24px	
+			height: 2px
+			background-color: #fff
+			top: -8px
+			transform: rotate(0deg)
+			transition: transform 0.3s ease, top 0.3s ease 0.3s
+		&:before
+			top: 8px
+			transform: rotate(0deg)
+			transition: transform 0.3s ease, top 0.3s ease 0.3s
+
+.navShow_opened // Создание анимации для кнопки раскрытия меню
+	span
+		background-color: transparent
+		transition: background-color 0s ease 0.3s
+		&:after
+			top: 0
+			transform: rotate(45deg)
+			transition: top 0.3s ease, transform 0.3s ease 0.3s
+		&:before
+			top: 0
+			transform: rotate(-45deg)
+			transition: top 0.3s ease, transform 0.3s ease 0.3s
+			
+.services
+	padding-left: 50px
+	max-width: 690px
+
+.services__block
+	margin-bottom: 36px
+
+.services__title
+	font-style: italic
+	padding-left: 23px
+	background: url('../img/plus.png') no-repeat left center
+	color: #fff
+	border: none
+	margin-bottom: 10px
+	cursor: pointer
+	&_opened
+		font-style: normal
+		text-transform: uppercase
+		background-image: url('../img/minus.png')	
+
+.services__description
+	padding-left: 23px
+	font-size: 11px
+	display: none
+
+.services__text
+	text-transform: uppercase
+	margin-bottom: 0px
+	&:first-child
+		margin-bottom: 30px
+	
+.copyright
+	color: rgb(148, 148, 148)
+	font-size: 11px
+	text-transform: uppercase
+	font-family: $bold-font
+	padding: 0 0 30px 36px
+	margin-top: auto
+	p
+		margin-bottom: 0
+
+.copyright__link	
+	color: inherit
+	text-decoration: underline
+	&:hover
+		color: lighten(rgb(148, 148, 148), 10%)
+
+
+@import "media" // Always at the end
+
+
+
